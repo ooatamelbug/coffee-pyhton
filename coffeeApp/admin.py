@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+# required models
+from .models import (
+    CoffeeMachines,
+    CoffeePods
+)
+
+# Register CoffeeMachines,CoffeePods models.
+admin.site.register(CoffeeMachines)
+admin.site.register(CoffeePods)
