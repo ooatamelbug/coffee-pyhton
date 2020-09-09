@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'coffeeApp',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,11 @@ WSGI_APPLICATION = 'coffee.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'NAME': 'coffee',
+        'HOST': 'mongodb://coffee:Ised234@coffee-shard-00-00.olt6v.azure.mongodb.net:27017,coffee-shard-00-01.olt6v.azure.mongodb.net:27017,coffee-shard-00-02.olt6v.azure.mongodb.net:27017/coffee?ssl=true&replicaSet=atlas-8ubxy2-shard-0&authSource=admin&retryWrites=true&w=majority',
+        'USER': 'coffee',
+        'PASSWORD': 'Ised234',
     }
 }
 
