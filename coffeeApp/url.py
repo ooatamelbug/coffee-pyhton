@@ -1,10 +1,13 @@
 from django.urls import path
 from .views import (
-    CoffeeMachines,
-    CoffeePods
+    coffeemachines,
+    coffeepods
 )
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
-    path('machines/', CoffeeMachines.as_view(), name='machines'),
-    path('pods/', CoffeePods.as_view(), name='pods'),
+    path('machines/', coffeemachines, name='machines'),
+    path('pods/', coffeepods, name='pods'),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

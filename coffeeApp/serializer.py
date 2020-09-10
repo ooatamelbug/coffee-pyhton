@@ -13,11 +13,11 @@ from rest_framework import (
 class CoffeeMachinesSerializer(serializers.ModelSerializer):
     class Meta:
         model = CoffeeMachines
-        fields = '__all__'
+        fields = ['SKU', 'model_type', 'product_type', 'water_line_compatible']
 
 
 # make CoffeePods serializer and get all data model in it
 class CoffeePodsSerializer(serializers.ModelSerializer):
     class Meta:
         model = CoffeePods
-        fields = '__all__'
+        fields = ['SKU', 'product_type', 'coffee_flavor', 'pack_size']
