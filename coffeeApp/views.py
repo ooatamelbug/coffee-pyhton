@@ -3,20 +3,18 @@ from .serializer import (
     CoffeeMachinesSerializer,
     CoffeePodsSerializer
 )
-
-
-# required rest_framework generics
-# from rest_framework import status
+# required api_view
 from rest_framework.decorators import api_view
 # required models
 from .models import (
     CoffeeMachines,
     CoffeePods
 )
+# required Response
 from rest_framework.response import Response
 
 
-# Create your views here.
+# Create coffeemachines views function.
 @api_view(['GET'])
 def coffeemachines(request):
     if request.GET.get("model_type"):
@@ -34,19 +32,20 @@ def coffeemachines(request):
     return Response(serializer.data)
 
 
+# Create coffeepods views function.
 @api_view(['GET'])
 def coffeepods(request):
     if request.GET.get("product_type"):
         filterdata = '%' + request.GET.get("product_type") + '%'
-        queryset = CoffeeMachines.objects.filter(product_type__contains=filterdata)
+        queryset = CoffeePods.objects.filter(product_type__contains=filterdata)
     elif request.GET.get("coffee_flavor"):
         filterdata = '%' + request.GET.get("coffee_flavor") + '%'
-        queryset = CoffeeMachines.objects.filter(coffee_flavor__contains=filterdata)
+        queryset = CoffeePods.objects.filter(coffee_flavor__contains=filterdata)
     elif request.GET.get("pack_size"):
         filterdata = '%' + request.GET.get("pack_size") + '%'
-        queryset = CoffeeMachines.objects.filter(pack_size__contains=filterdata)
+        queryset = CoffeePods.objects.filter(pack_size__contains=filterdata)
     else:
-        queryset = CoffeeMachines.objects.all()
+        queryset = CoffeePods.objects.all()
     serializer = CoffeePodsSerializer(queryset, many=True)
     return Response(serializer.data)
 

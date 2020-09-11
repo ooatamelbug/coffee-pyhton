@@ -6,6 +6,6 @@ from .models import (
     CoffeePods
 )
 
-# Register CoffeeMachines,CoffeePods models.
+# Register CoffeeMachines,CoffeePods models in admin.
 admin.site.register(CoffeeMachines)
 admin.site.register(CoffeePods)
